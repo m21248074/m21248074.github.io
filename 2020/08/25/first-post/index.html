@@ -47,7 +47,8 @@
     lang   : 'zh-TW'
   };
 </script>
-
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <title>first_post | 凱維的部落格</title>
   
 
@@ -362,6 +363,9 @@
         <a href="https://plus.google.com/m123051427" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;m123051427" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
       </span>
   </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
 
 
 
@@ -432,7 +436,22 @@
     <span title="所需總閱讀時間">1 分鐘</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 強力驅動
-  </div>
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div class="translate-style">
+繁/簡：<a id="translateLink" href="javascript:translatePage();">簡體
+</a>
+</div>
+<script type="text/javascript" src="/js/tw_cn.js"></script>
+<script type="text/javascript">
+var defaultEncoding = 1; //網站編寫字體是否繁體，1-繁體，2-簡體
+var translateDelay = 0; //延遲時間,若不在前, 要設定延遲翻譯時間, 如100表示100ms,默認為0
+var cookieDomain = "https://m21248074.github.io/"; //Cookie地址, 一定要設定, 通常為你的網址
+var msgToTraditionalChinese = "繁體"; //此處可以更改為你想要顯示的文字
+var msgToSimplifiedChinese = "簡體"; //同上，但兩處均不建議更改
+var translateButtonId = "translateLink"; //默認互換id
+translateInitilization();
+</script>
 
         
 
@@ -550,6 +569,12 @@ window.addEventListener('pjax:success', () => {
 
   
 
+
+  <script async src="/js/cursor/love.min.js"></script>
+
+
+
+<script src="/js/cursor/test.js"></script>
     </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":30,"vOffset":-100},"mobile":{"show":true,"scale":0.75},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
