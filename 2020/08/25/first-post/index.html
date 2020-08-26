@@ -206,7 +206,7 @@
     <link itemprop="mainEntityOfPage" href="http://m21248074.github.io/2020/08/25/first-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Cavey(凱維)">
       <meta itemprop="description" content="文章多以教學文為主~~">
     </span>
@@ -285,6 +285,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -337,7 +338,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Cavey(凱維)"
-      src="/images/avatar.gif">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Cavey(凱維)</p>
   <div class="site-description" itemprop="description">文章多以教學文為主~~</div>
 </div>
@@ -568,6 +569,26 @@ window.addEventListener('pjax:success', () => {
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '80d25f13bb9dd51bcdd8',
+      clientSecret: '24fead385de1031ea1f80d374629597038124e59',
+      repo        : 'm21248074.github.io',
+      owner       : 'm21248074',
+      admin       : ['m21248074'],
+      id          : 'd8efcc1db053558ba47d5c4955994214',
+        language: 'zh-TW',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 
   <script async src="/js/cursor/love.min.js"></script>
