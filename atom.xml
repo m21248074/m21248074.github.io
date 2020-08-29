@@ -6,7 +6,7 @@
   <link href="http://m21248074.github.io/atom.xml" rel="self"/>
   
   <link href="http://m21248074.github.io/"/>
-  <updated>2020-08-24T21:02:39.442Z</updated>
+  <updated>2020-08-28T06:55:54.340Z</updated>
   <id>http://m21248074.github.io/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>first_post</title>
-    <link href="http://m21248074.github.io/2020/08/25/first-post/"/>
-    <id>http://m21248074.github.io/2020/08/25/first-post/</id>
-    <published>2020-08-24T21:01:48.000Z</published>
-    <updated>2020-08-24T21:02:39.442Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;這是測試用的!噗噗!&lt;/p&gt;
-</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
-    <link href="http://m21248074.github.io/2020/08/22/hello-world/"/>
-    <id>http://m21248074.github.io/2020/08/22/hello-world/</id>
+    <link href="http://m21248074.github.io/2020/08/hello-world/"/>
+    <id>http://m21248074.github.io/2020/08/hello-world/</id>
     <published>2020-08-22T08:49:53.604Z</published>
-    <updated>2020-08-25T06:05:28.476Z</updated>
+    <updated>2020-08-28T06:55:54.340Z</updated>
     
     
       
