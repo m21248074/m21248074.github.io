@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>FoCS_1</title>
+    <url>/2020/08/FoCS-1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>HTML系列第一篇 開始</title>
+    <url>/2020/08/HTML-1/</url>
+    <content><![CDATA[<h2 id="什麼是HTML-What-is-HTML"><a href="#什麼是HTML-What-is-HTML" class="headerlink" title="什麼是HTML?   What is HTML?"></a>什麼是HTML?   What is HTML?</h2><p>&emsp;&emsp;HTML其實是一個縮寫，它的全稱是<strong>Hypertext Markup Language</strong>，中文翻作「超文本標記語言」，它是大部分網站的基石[^1]。HTML被使用在文字以及其他頁面內容的標記，同時也會定義如何結構化的設計網站內容。</p>
+<div class="note default">
+            <p>關於HTML的歷史可以參閱其<a href="https://zh.wikipedia.org/wiki/HTML">Wiki</a>頁面瞭解更多。 </p>
+          </div>
+
+<p>&emsp;&emsp;我們經常瀏覽各式各樣的網頁，可以看到一份網頁其實是由很多內容組成的，其中可能有文字、圖片、影片、音樂等。而任何內容都可以通過HTML語法來詮釋，HTML中的<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC"><code>Hypertext</code></a>(HT)就是指可以連接不同網頁的<strong>連結</strong>，它可以是在單一網站內，也可以在兩個不同網站中。而連結是網路的基礎方面，我們可以藉由上傳內容到其他人建立的網頁，來成為WWW[^2]的參與者。</p>
+<p>&emsp;&emsp;為了在瀏覽器上顯示網頁，HTML使用<strong>標記</strong>[^3]去註釋文字、圖片或其他內容。HTML標記有很多特別的<strong>元素</strong>，例如<code>&lt;head&gt;</code>，<code>&lt;title&gt;</code>，<code>&lt;body&gt;</code>，<code>&lt;header&gt;</code>，<code>&lt;footer&gt;</code>等，之後會再介紹一些給各位。</p>
+<p>&emsp;&emsp;</p>
+<h3 id="簡單來說"><a href="#簡單來說" class="headerlink" title="簡單來說"></a>簡單來說</h3><ol>
+<li>HTML 代表 Hypertext Markup Language。</li>
+<li>HTML是為了建立網頁的標準標記語言。</li>
+<li>HTML描述網頁的結構。</li>
+<li>HTML是由一系列的元素組成的。 </li>
+<li>HTML元素告知網頁瀏覽器如何顯示網頁內容。</li>
+</ol>
+<p>[^1]: Basic building block (英文原文)<br>[^2]: World Wide Web (<a href="https://zh.wikipedia.org/wiki/%E4%B8%87%E7%BB%B4%E7%BD%91">Wiki</a>)<br>[^3]: Markup</p>
+]]></content>
+      <tags>
+        <tag>資訊</tag>
+        <tag>網頁設計</tag>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript系列第一篇 簡介</title>
+    <url>/2020/08/JS-1/</url>
+    <content><![CDATA[<blockquote class="blockquote-center">
+            <i class="fa fa-quote-left"></i>
+            <p>這篇文章我將會介紹 JaveScript 的背景與特性，並說明 JavaScript 的執行方式。</p>
+
+            <i class="fa fa-quote-right"></i>
+          </blockquote>
+<h1 id="1-1-背景與特色"><a href="#1-1-背景與特色" class="headerlink" title="1-1 背景與特色"></a>1-1 背景與特色</h1>]]></content>
+      <tags>
+        <tag>資訊</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/08/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
