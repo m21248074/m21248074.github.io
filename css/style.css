@@ -11,6 +11,7 @@ body
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    /*background-color:rgba(0, 0, 0, 0.4);*/
 }
 .box
 {
@@ -72,4 +73,18 @@ ul
 .box li a:hover
 {
     color: #b9b9b9;
+}
+/*music visualizer_render*/
+#visualizer_render
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+#visualDisplay
+{
+    display: none;
 }

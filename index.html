@@ -6,30 +6,156 @@
         <link rel="stylesheet" href="./css/style.css">
         <title>Cavey's Personal WebSite</title>
         <script src="https://mubaidr.js.org/rainyday.js/js/rainyday.min.js"></script>
+        <script src="https://plore-0.github.io/audiovisualizer/script.js"></script>
         <script>
+            var clickNum=0;
             function run()
             {
                 var rainyDay=new RainyDay({image:'rainyDayBackground'});
             }
+            function frameLooper()
+            {
+                resize_canvas();
+                var grd=ctx.createLinearGradient(0,0,0,canvas.height);
+                grd.addColorStop(0, "rgba(180, 140, 230, 0)");
+                grd.addColorStop(1, "rgba(102, 102, 255, 0)");
+                ctx.fillStyle = grd;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                rot = rot + intensity * 0.0000001;
+                react_x = 0;
+                react_y = 0;
+                intensity = 0;
+                analyser.getByteFrequencyData(fbc_array);
+                for (var i = 0; i < bars; i++)
+                {
+                    rads = Math.PI * 2 / bars;
+                    bar_x = center_x;
+                    bar_y = center_y;
+                    bar_height = Math.min(99999, Math.max((fbc_array[i] * 2.5 - 200), 0));
+                    bar_width = bar_height * 0.02;
+                    bar_x_term = center_x + Math.cos(rads * i + rot) * (radius + bar_height);
+                    bar_y_term = center_y + Math.sin(rads * i + rot) * (radius + bar_height);
+                    ctx.save();
+                    var lineColor = "rgb(" + (fbc_array[i]).toString() + ", " + 255 + ", " + 255 + ")";
+                    ctx.strokeStyle = lineColor;
+                    ctx.lineWidth = bar_width;
+                    ctx.beginPath();
+                    ctx.moveTo(bar_x, bar_y);
+                    ctx.lineTo(bar_x_term, bar_y_term);
+                    ctx.stroke();
+                    react_x += Math.cos(rads * i + rot) * (radius + bar_height);
+                    react_y += Math.sin(rads * i + rot) * (radius + bar_height);
+                    intensity += bar_height;
+                }
+                center_x = canvas.width / 2 - (react_x * 0.007);
+                center_y = canvas.height / 2 - (react_y * 0.007);
+                radius_old = radius;
+                radius =  25 + (intensity * 0.002);
+                deltarad = radius - radius_old;
+                ctx.fillStyle = "rgb(255, 255, 255)";
+                ctx.beginPath();
+                ctx.arc(center_x, center_y, radius + 2, 0, Math.PI * 2, false);
+                ctx.fill();
+                // shockwave effect			
+                shockwave += 60;
+                ctx.lineWidth = 15;
+                ctx.strokeStyle = "rgb(255, 255, 255)";
+                ctx.beginPath();
+                ctx.arc(center_x, center_y, shockwave + radius, 0, Math.PI * 2, false);
+                ctx.stroke();
+                if(deltarad > 15)
+                {
+                    shockwave = 0;
+                    ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    rot = rot + 0.4;
+                }
+                if(!isSeeking)
+                    document.getElementById("audioTime").value = (100 / audio.duration) * audio.currentTime;
+                document.getElementById("time").innerHTML = Math.floor(audio.currentTime / 60) + ":" + (Math.floor(audio.currentTime % 60) < 10 ? "0" : "") + Math.floor(audio.currentTime % 60);
+                window.requestAnimationFrame(frameLooper);
+            };
+            window.onload=function()
+            {
+                run();
+                initPage();
+            };
+            window.onclick=function()
+            {
+                if(!clickNum)
+                {
+                    handleButton();
+                    clickNum+=1;
+                }
+                else
+                    togglepause();
+            }
         </script>
     </head>
-    <body onload="run();">
+    <body>
         <div class="container" id="rainyDayBackground">
-        <div class="box">
-            <img src="https://m21248074.github.io/images/avatar.png" alt="" class="box-img">
-            <h1>Cavey</h1>
-            <h5>College Student - Geeker</h5>
-            <p>
-                I am a sophomore from the department of information management of National United University in Taiwan.<br>
-                I love information related knowledge.<br> 
-                Welcome to my personal page!
-            </p>
-            <ul>
-                <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                <li><a href="./blog"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-                <li><a href="https://www.youtube.com/channel/UCjFwMybvBWl75kiRbHNu2lA"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
+            <canvas id="visualizer_render"></canvas>
+            <div class="box">
+                <img src="https://m21248074.github.io/images/avatar.png" alt="" class="box-img">
+                <h1>Cavey</h1>
+                <h5>College Student - Geeker</h5>
+                <p>
+                    I am a sophomore from the department of information management of National United University in Taiwan.<br>
+                    I love information related knowledge.<br> 
+                    Welcome to my personal page!
+                </p>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="./blog"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCjFwMybvBWl75kiRbHNu2lA"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <!---->
+            <div id=visualDisplay>
+                <div id="pagetitle"></div>
+                <div id="hideHead"></div>
+                <div id="image"><img id="artwork" width="150" height="150"></div>
+                <div id="artisttitle"><h1 id="artistname"></h1></div>
+                <div id="songtitle"><h1 id="songname"></h1></div>
+                <div id="hideBody">
+                    <div id="title"><h2>Canvas Audio Visualizer</h2></div>
+                    <div id="instruction"><h4>Enter your SoundCloud Track URL here:</h4></div>
+                    <div id="URLbox">
+                        <input 
+                            id="input_URL" 
+                            type="textbox"
+                            class="textbox"
+                            name="URL"
+                            type="text" 
+                            value="https://soundcloud.com/l2share103/iu-eight-prod-feat-suga-of-bts"
+                            style="width: 300px;"
+                            onclick="autoSelect()"
+                        />		
+                    </div>
+                    <div id="controls">
+                        <div id="button_play">
+                            <button 
+                                type="button"
+                                class="button"
+                                onclick="handleButton()" 
+                                style="position: relative; right: 86px;"
+                            >&#x23f5;</button>
+                        </div>
+                        <div id="button_pause">
+                            <button
+                                type="button"
+                                class="button"
+                                onclick="togglepause()"
+                                style="position: relative; right: 50px;"
+                            >&#10074;&#10074;</button>
+                        </div>
+                        <div id="scrubber"><input onmouseover="isSeeking = 1" onmouseout="isSeeking = 0" onclick="audio.currentTime = document.getElementById('audioTime').value * (audio.duration / 100);" type="range" id="audioTime" style="width:33.3vw"></div>
+                        <div id="audioCurrentTime"><h1 id="time" style="position: relative; left: 10px;"></h1></div>
+                    </div>
+                </div>>
+                <div id="homelink"></div>
+                <div id="credit"></div>
+            </div>
         </div>
     </body>
 </html>
